@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Choix du joueur
+      let Joueur = window
+        .prompt("Choisissez entre pierre, feuille ou ciseaux :")
+        .toLowerCase();
+
+      // Si mauvais entrée du joueur
+      if (
+        !(Joueur === "pierre" || Joueur === "feuille" || Joueur === "ciseaux")
+      ) {
+        alert("Erreur ! Recommencer !");
+      } else {
+        // Choix de l'ordi
+        let Ordi = Math.random();
+
+        if (Ordi < 1 / 3) {
+          Ordi = "pierre";
+        } else if (Ordi < 2 / 3) {
+          Ordi = "feuille";
+        } else {
+          Ordi = "ciseaux";
+        }
+
+        // Règles du jeu
+        let resultat;
+
+        if (Joueur === Ordi) {
+          resultat = "Égalité !";
+        } else if (
+          (Joueur === "pierre" && Ordi === "ciseaux") ||
+          (Joueur === "feuille" && Ordi === "pierre") ||
+          (Joueur === "ciseaux" && Ordi === "feuille")
+        ) {
+          resultat = "Gagné !";
+        } else {
+          resultat = "Perdu !";
+        }
+
+        // Afficher le résultat
+        alert(resultat);
+      }
+    </script>
+  </body>
+</html>
